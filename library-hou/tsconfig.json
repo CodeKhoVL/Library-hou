@@ -23,6 +23,7 @@
       "@components/*": ["./src/components/*"],
       "@api/*": ["./src/api/*"],
       "@styles/*": ["./src/styles/*"],
+      "@lib/*": ["./src/lib/*"]
       /*
       "@global*": ["./src/shared/global*"],
       "@services*": ["./src/app/services*"],

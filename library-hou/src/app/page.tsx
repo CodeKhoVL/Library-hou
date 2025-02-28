@@ -4,6 +4,7 @@ import Navbar from '@components/app.navbar';
 import Subnav from '@components/app.subnav';
 import News from '@components/section.news';
 import Search from '@components/section.search';
+import Books from '@/components/section.books';
 const AppHeader = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const AppHeader = () => {
       <Subnav />
       <Header />
       <Search />
+      <Books />
       <News />
       {/* <main className="p-8">
         <p>Welcome to the University Library!</p>

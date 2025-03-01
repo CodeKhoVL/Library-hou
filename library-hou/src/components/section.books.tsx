@@ -4,6 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 
+
 // Định nghĩa kiểu dữ liệu cho props của BookCard
 interface BookCardProps {
   coverUrl: string;
@@ -54,13 +55,6 @@ const books: BookCardProps[] = [
   },
   {
     coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL1526746W",
-    width: 119.59,
-    actionText: "Read",
-    actionUrl: "https://openlibrary.org/borrow/ia/makerofmoons00chamrich",
-  },
-  {
-    coverUrl: "/images/book1.jpg",
     bookUrl: "https://openlibrary.org/works/OL1158943W",
     width: 119.59,
     actionText: "Borrow",
@@ -82,10 +76,17 @@ const books: BookCardProps[] = [
   },
   {
     coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL1158943W",
+    bookUrl: "https://openlibrary.org/works/OL1102991W",
+    width: 119.59,
+    actionText: "Read",
+    actionUrl: "https://openlibrary.org/borrow/ia/brontslifelett01shoruoft",
+  },
+  {
+    coverUrl: "/images/book1.jpg",
+    bookUrl: "https://openlibrary.org/works/OL11293636W",
     width: 119.59,
     actionText: "Borrow",
-    actionUrl: "https://openlibrary.org/borrow/ia/lespleendeparisp0000unse",
+    actionUrl: "https://openlibrary.org/borrow/ia/commanddecision0000hain",
   },
   {
     coverUrl: "/images/book1.jpg",
@@ -104,6 +105,7 @@ const books: BookCardProps[] = [
 ];
 
 export default function Books() {
+
   return (
     <div className="flex flex-col items-center w-full h-auto py-8">
       <div className="relative max-w-[1168px] w-full">
@@ -113,10 +115,17 @@ export default function Books() {
 
         {/* Vùng chứa danh sách sách */}
         <div className="w-full h-auto bg-[#d7e3f3] rounded-b-lg px-2 py-8 flex justify-center items-center">
-          <Carousel className="w-full overflow-hidden">
-            <CarouselContent className="ml-0 flex justify-center items-center gap-4 px-8">
+          <Carousel 
+            className="w-full max-w-6xl overflow-hidden"
+            opts={{
+              align: "start",
+              loop: true,
+              slidesToScroll: 5
+            }}
+          >
+            <CarouselContent className="ml-0">
               {books.map((book, index) => (
-                <CarouselItem key={index} className="basis-1/5 shrink-0 snap-align-start flex justify-center">
+                <CarouselItem key={index} className="basis-1/5 pl-0 md:basis-1/5">
                   <BookCard {...book} />
                 </CarouselItem>
               ))}
@@ -133,4 +142,3 @@ export default function Books() {
     </div>
   );
 }
-

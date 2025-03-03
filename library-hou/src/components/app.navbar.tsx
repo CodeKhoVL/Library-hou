@@ -47,11 +47,10 @@ import {
               {/* Quicklinks */}
               <NavigationMenuItem>
                 <NavigationMenuLink 
-                  href="https://www.adelaide.edu.au/library/" 
+                  href="https://cas.hou.edu.vn/cas/login?service=http://thuvien.hou.edu.vn/Login.aspx" 
                   className="relative flex items-center text-[12.6px] font-sans px-4 py-3  text-white"
                 >
                   <span>ĐĂNG NHẬP</span>
-                  <ChevronDown className="w-[9px] h-3.5 ml-2 text-white" />
                 </NavigationMenuLink>
               </NavigationMenuItem>
   

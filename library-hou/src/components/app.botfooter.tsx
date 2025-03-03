@@ -93,10 +93,9 @@ const Footer = (): React.ReactElement => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                We acknowledge
+
               </a>{" "}
-              the Kaurna people, the original custodians of the Adelaide Plains and the land on which the University of Adelaide's
-              campuses at North Terrace, Waite and Roseworthy are built.
+              Địa chỉ: - Nhà B101 Phố Nguyễn Hiền, Bách Khoa, Hai Bà Trưng, Hà Nội. - Trường ĐH Mở Hà Nội, Long Hưng, Văn Giang, Hưng Yên. - Phòng đọc: Nhà C Khu giảng đường 422 Vĩnh Hưng, Hoàng Mai, Hà Nội.
             </p>
           </div>
         </div>
@@ -198,15 +197,15 @@ const Footer = (): React.ReactElement => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              The University of Adelaide
+              HaNoi Open Univesity
             </a>
             <p className="text-[15.5px] leading-[27px]">
-              Adelaide, South Australia <br /> 5005 Australia
+              422 Vinh Hung, HaNoi, VietNam  <br /> Hottline: 0246.6838.866
             </p>
           </div>
           
           <div className="text-[10.9px] leading-[19.2px] mb-4">
-            Australian University Provider Number PRV12105 <br /> CRICOS Provider Number 00123M
+            VietNam University 
           </div>
           
           <div className="flex flex-wrap gap-2 text-[11px]">
@@ -241,7 +240,7 @@ const Footer = (): React.ReactElement => {
             rel="noopener noreferrer"
             target="_blank"
           >
-            University Librarian
+            Open Library
           </a>
         </div>
         
@@ -253,11 +252,11 @@ const Footer = (): React.ReactElement => {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Library Web Team
+            Library Web 
           </a>
         </div>
         
-        <div className="text-[11.4px] leading-[21.6px]">Last updated: 19 Jul 2024</div>
+  
       </div>
     </section>
   );

@@ -12,57 +12,57 @@ import { ChevronDown } from "lucide-react";
 const navigationItems = [
   {
     label: "Trang chủ",
-    href: "https://www.adelaide.edu.au/study",
+    href: "",
   },
   {
     label: "Giới thiệu",
-    href: "https://www.adelaide.edu.au/study",
+    href: "",
     submenu: [
-      { label: "Viện CN sinh học và CN thực phẩm", href: "https://www.adelaide.edu.au/study/undergraduate" },
-      { label: "Postgraduate", href: "https://www.adelaide.edu.au/study/postgraduate" },
-      { label: "International Students", href: "https://www.adelaide.edu.au/study/international" },
+      { label: "Viện CN sinh học và CN thực phẩm", href: "" },
+      { label: "Postgraduate", href: "" },
+      { label: "International Students", href: "" },
     ],
   },
   {
     label: "Tra cứu",
-    href: "https://www.adelaide.edu.au/study",
+    href: "",
     submenu: [
-      { label: "Undergraduate", href: "https://www.adelaide.edu.au/study/undergraduate" },
-      { label: "Postgraduate", href: "https://www.adelaide.edu.au/study/postgraduate" },
-      { label: "International Students", href: "https://www.adelaide.edu.au/study/international" },
+      { label: "Undergraduate", href: "" },
+      { label: "Postgraduate", href: "" },
+      { label: "International Students", href: "" },
     ],
   },
   {
     label: "Tạp chí",
-    href: "https://www.adelaide.edu.au/study",
+    href: "",
     submenu: [
-      { label: "Undergraduate", href: "https://www.adelaide.edu.au/study/undergraduate" },
-      { label: "Postgraduate", href: "https://www.adelaide.edu.au/study/postgraduate" },
-      { label: "International Students", href: "https://www.adelaide.edu.au/study/international" },
+      { label: "Undergraduate", href: "" },
+      { label: "Postgraduate", href: "" },
+      { label: "International Students", href: "" },
     ],
   },
   {
     label: "Người dùng",
-    href: "https://www.adelaide.edu.au/research",
+    href: "",
     submenu: [
-      { label: "Research Degrees", href: "https://www.adelaide.edu.au/research/degrees" },
-      { label: "Innovation", href: "https://www.adelaide.edu.au/research/innovation" },
+      { label: "Research Degrees", href: "" },
+      { label: "Innovation", href: "" },
     ],
   },
   {
     label: "Liên kết nội bộ",
-    href: "https://www.adelaide.edu.au/engage",
+    href: "",
     submenu: [
-      { label: "Events", href: "https://www.adelaide.edu.au/engage/events" },
-      { label: "Alumni", href: "https://www.adelaide.edu.au/engage/alumni" },
+      { label: "Events", href: "" },
+      { label: "Alumni", href: "" },
     ],
   },
   {
     label: "Học liệu điện tử",
-    href: "https://www.adelaide.edu.au/about",
+    href: "",
     submenu: [
-      { label: "Our History", href: "https://www.adelaide.edu.au/about/history" },
-      { label: "Leadership", href: "https://www.adelaide.edu.au/about/leadership" },
+      { label: "Our History", href: "" },
+      { label: "Leadership", href: "" },
     ],
   },
 ];

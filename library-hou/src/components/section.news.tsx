@@ -27,7 +27,7 @@ const newsCards = [
       </>
     ),
     image: "/images/news3.jpg",
-    link: "https://www.adelaide.edu.au/library/news/list/2024/11/11/applications-open-for-hugh-martin-weir-prize-2025",
+    link: "http://thuvien.hou.edu.vn/ContentBrowser.aspx?contentid=8744&dmd_id=81371&mnuid=11",
   },
   {
     title: "Trường Đại học Mở Hà Nội tổ chức Chương trình Gặp mặt Tất niên - Chào xuân Ất Tỵ",
@@ -37,7 +37,7 @@ const newsCards = [
       </>
     ),
     image: "/images/news4.jpg",
-    link: "https://www.adelaide.edu.au/library/news/list/2024/11/05/images-of-learning-and-teaching-competition-winners-2024",
+    link: "http://thuvien.hou.edu.vn/ContentBrowser.aspx?contentid=8745&dmd_id=81371&mnuid=11",
   },
 ];
 

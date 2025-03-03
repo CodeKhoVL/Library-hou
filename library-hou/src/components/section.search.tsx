@@ -13,7 +13,7 @@ export default function Search() {
     { text: "Báo, tạp chí", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=6&material_type=1" },
     { text: "Luận văn", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=7&material_type=1 " },
     { text: "Luận án", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=8&material_type=1", hasExternalIcon: true },
-    { text: "Đồ án", url: "https://www.adelaide.edu.au/library/library-services/popular-research-tools" },
+    { text: "Đồ án", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=13&material_type=1" },
     { text: "Khóa luận", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=8&material_type=1" },
     { text: "Kết quả NCKH", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=8&material_type=1" },
     { text: "Bài giảng", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=4&material_type=1",  },
@@ -24,10 +24,10 @@ export default function Search() {
 
   const quickLinks = [
 
-    { text: "Login to MyLibrary", url: "https://library.adelaide.edu.au/mylibrary", color: "blue" },
-    { text: "Book a study space", url: "https://adelaide.libcal.com/spaces", hasExternalIcon: true, color: "blue" },
+    { text: "Login to MyLibrary", url: "", color: "blue" },
+    { text: "Book a study space", url: "", hasExternalIcon: true, color: "blue" },
     { text: "Online chat", url: "", color: "red" },
-    { text: "Ask Library", url: "https://www.adelaide.edu.au/library/ask-library", color: "red" }
+    { text: "Ask Library", url: "", color: "red" }
   ];
 
   return (

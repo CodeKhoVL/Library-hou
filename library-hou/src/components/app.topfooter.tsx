@@ -5,17 +5,17 @@ import React from "react";
 export default function TopFooter(): React.ReactElement {
   // Social media links data
   const socialLinks = [
-    { icon: <FacebookIcon size={30} />, url: "https://www.facebook.com/uofalib", label: "Facebook" },
-    { icon: <TwitterIcon size={30} />, url: "https://twitter.com/uofalib", label: "Twitter" },
-    { icon: <InstagramIcon size={30} />, url: "https://www.instagram.com/uofalib/", label: "Instagram" },
-    { icon: <RssIcon size={30} />, url: "https://www.adelaide.edu.au/library/news/list", label: "RSS" },
+    { icon: <FacebookIcon size={30} />, url: "", label: "Facebook" },
+    { icon: <TwitterIcon size={30} />, url: "", label: "Twitter" },
+    { icon: <InstagramIcon size={30} />, url: "", label: "Instagram" },
+    { icon: <RssIcon size={30} />, url: "", label: "RSS" },
   ];
 
   // Button links data
   const buttonLinks = [
-    { text: "Contact us", url: "https://www.adelaide.edu.au/library/ask-library" },
-    { text: "Locations & hours", url: "http://adelaide.libcal.com/hours/" },
-    { text: "Feedback & suggestions", url: "https://www.adelaide.edu.au/library/ask-library/feedback-suggestions" },
+    { text: "Contact us", url: "" },
+    { text: "Locations & hours", url: "" },
+    { text: "Feedback & suggestions", url: "" },
   ];
 
   return (
@@ -36,12 +36,12 @@ export default function TopFooter(): React.ReactElement {
                 <span className="ml-1 text-white text-[14px]">08 8313 5759</span>
               </div>
               <a
-                href="mailto:library@adelaide.edu.au"
+                href="mailto:thuvien@hou.edu.vn"
                 className="text-white text-[14px] hover:underline"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                library@adelaide.edu.au
+                thuvien@hou.edu.vn
               </a>
             </div>
           </div>

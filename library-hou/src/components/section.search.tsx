@@ -3,9 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { ExternalLink } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Search() {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+
   const searchLinks = [
     { text: "Tất cả", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=0&material_type=1" },
     { text: "Giáo trình", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=1&material_type=1" },
@@ -16,19 +20,21 @@ export default function Search() {
     { text: "Đồ án", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=13&material_type=1" },
     { text: "Khóa luận", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=8&material_type=1" },
     { text: "Kết quả NCKH", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=8&material_type=1" },
-    { text: "Bài giảng", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=4&material_type=1",  },
+    { text: "Bài giảng", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=4&material_type=1" },
     { text: "Sách TK ngoại văn", url: "http://thuvien.hou.edu.vn/Opac/default.aspx?mnuid=146&collection_id=3&material_type=1" }
-    
-    
   ];
 
   const quickLinks = [
-
     { text: "Login to MyLibrary", url: "", color: "blue" },
     { text: "Book a study space", url: "", hasExternalIcon: true, color: "blue" },
     { text: "Online chat", url: "", color: "red" },
     { text: "Ask Library", url: "", color: "red" }
   ];
+
+  const handleSearch = () => {
+    // Navigate to the search page, optionally passing the query as parameter
+    router.push(`/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""}`);
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-white p-4">
@@ -43,8 +49,14 @@ export default function Search() {
               <Input
                 className="flex-1 h-14 px-4 rounded-none bg-white border-gray-400 shadow-sm"
                 placeholder="Find books, music, ebooks, videos and more..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
               />
-              <Button className="h-14 px-6 bg-[#d40000] hover:bg-[#b30000] text-white">
+              <Button 
+                className="h-14 px-6 bg-[#d40000] hover:bg-[#b30000] text-white"
+                onClick={handleSearch}
+              >
                 Search
               </Button>
             </div>

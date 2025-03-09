@@ -24,7 +24,7 @@ import {
           {/* Logo */}
           <a 
             className="absolute top-0 left-0 p-6 w-[188px] flex items-center" 
-            href="https://www.adelaide.edu.au/" 
+            href="https://hou.edu.vn/" 
             rel="noopener noreferrer" 
             target="_blank"
           >

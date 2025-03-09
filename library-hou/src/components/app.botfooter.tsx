@@ -4,62 +4,64 @@ import React from "react";
 const Footer = (): React.ReactElement => {
   // Dữ liệu cho các liên kết
   const infoAboutLinks = [
-    { text: "The University", href: "https://www.adelaide.edu.au/about/" },
-    { text: "Campuses & Maps", href: "https://www.adelaide.edu.au/campuses/" },
-    { text: "Degrees & Courses", href: "https://www.adelaide.edu.au/degree-finder/" },
-    { text: "Working at Adelaide", href: "https://www.adelaide.edu.au/jobs/" },
-    { text: "Giving to Adelaide", href: "https://www.adelaide.edu.au/give/how/" },
-    { text: "Safer Campus Community", href: "https://www.adelaide.edu.au/safer-campus-community/" },
-    { text: "University Contacts", href: "https://www.adelaide.edu.au/about/university-contacts" },
+    { text: "The University", href: "https://hou.edu.vn/" },
+    { text: "Degrees & Courses", href: "https://hou.edu.vn/" },
+    { text: "Safer Campus Community", href: "https://hou.edu.vn/" },
+    { text: "University Contacts", href: "https://hou.edu.vn/" },
   ];
 
   const infoForLinks = [
-    { text: "Future Students", href: "https://www.adelaide.edu.au/study/" },
-    { text: "International Students", href: "https://international.adelaide.edu.au/" },
-    { text: "Current Students", href: "https://www.adelaide.edu.au/student" },
-    { text: "Current Staff", href: "https://www.adelaide.edu.au/staff/" },
-    { text: "Future Staff", href: "https://www.adelaide.edu.au/jobs/" },
-    { text: "Alumni", href: "https://www.adelaide.edu.au/alumni/" },
-    { text: "Business & Community", href: "https://www.adelaide.edu.au/engage/" },
+    { text: "Future Students", href: "https://hou.edu.vn/" },
+    { text: "International Students", href: "https://hou.edu.vn/" },
+    { text: "Current Students", href: "https://hou.edu.vn/" },
+    { text: "Current Staff", href: "https://hou.edu.vn/" },
+    { text: "Future Staff", href: "https://hou.edu.vn/" },
+    { text: "Business & Community", href: "https://hou.edu.vn/" },
   ];
 
   const socialLinks = [
     {
       icon: <Facebook size={20} />,
-      href: "https://www.facebook.com/uniofadelaide",
+      href: "https://hou.edu.vn/",
       ariaLabel: "Facebook",
+      id: "facebook"
     },
     {
       icon: <Twitter size={20} />,
-      href: "https://twitter.com/uniofadelaide",
+      href: "https://hou.edu.vn/",
       ariaLabel: "Twitter",
+      id: "twitter"
     },
     {
       icon: <Instagram size={20} />,
-      href: "https://www.instagram.com/uniofadelaide/",
+      href: "https://hou.edu.vn/",
       ariaLabel: "Instagram",
+      id: "instagram"
     },
     {
       icon: <Youtube size={20} />,
-      href: "https://www.youtube.com/user/universityofadelaide",
+      href: "https://hou.edu.vn/",
       ariaLabel: "YouTube",
-    },
-    {
-      icon: <Linkedin size={20} />,
-      href: "https://www.linkedin.com/school/uniofadelaide/",
-      ariaLabel: "LinkedIn",
+      id: "youtube"
     },
     {
       icon: <MessageCircle size={20} />,
-      href: "https://mp.weixin.qq.com/s/Ukwljz8sWpw6idGRvvHEKA",
-      ariaLabel: "WeChat",
+      href: "https://hou.edu.vn/",
+      ariaLabel: "NhanTin",
+      id: "nhantin"
     },
   ];
 
   const legalLinks = [
-    { text: "Disclaimer", href: "https://www.adelaide.edu.au/legals/disclaimer/" },
-    { text: "Copyright", href: "https://www.adelaide.edu.au/legals/copyright/" },
-    { text: "Privacy Policy", href: "https://www.adelaide.edu.au/legals/privacy/" },
+    { text: "Disclaimer", href: "https://hou.edu.vn/", id: "disclaimer" },
+    { text: "Copyright", href: "https://hou.edu.vn/", id: "copyright" },
+    { text: "Privacy Policy", href: "https://hou.edu.vn/", id: "privacy" },
+  ];
+  
+  const partnerLinks = [
+    { href: "/", id: "go8", alt: "Group of Eight" },
+    { href: "/", id: "/", alt: "/" },
+    { href: "/", id: "apru", alt: "APRU" },
   ];
 
   // SECTION 1: Logo, Make History và Acknowledge
@@ -68,7 +70,7 @@ const Footer = (): React.ReactElement => {
       <div className="flex flex-wrap gap-8 md:gap-[100px] px-4 py-4 w-full">
         <a
           className="flex items-center"
-          href="https://www.adelaide.edu.au/"
+          href="https://hou.edu.vn/"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -77,7 +79,7 @@ const Footer = (): React.ReactElement => {
         
         <a
           className="flex items-center"
-          href="https://www.adelaide.edu.au/make-history"
+          href="https://hou.edu.vn/"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -89,7 +91,7 @@ const Footer = (): React.ReactElement => {
             <p className="text-base leading-[27px] font-normal">
               <a
                 className="text-white"
-                href="https://www.adelaide.edu.au/wirltu-yarlu/reconciliation"
+                href="https://hou.edu.vn/"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -111,9 +113,9 @@ const Footer = (): React.ReactElement => {
         <div className="flex flex-col w-full sm:w-[300px] gap-4 p-4">
           <h4 className="font-semibold text-lg">Information about</h4>
           <nav className="flex flex-col gap-2">
-            {infoAboutLinks.map((link, index) => (
+            {infoAboutLinks.map((link) => (
               <a
-                key={index}
+                key={`about-${link.text}`}
                 className="text-base leading-[27px] text-white hover:underline"
                 href={link.href}
                 rel="noopener noreferrer"
@@ -129,11 +131,11 @@ const Footer = (): React.ReactElement => {
         <div className="flex flex-col w-full sm:w-[300px] gap-4 p-4">
           <h4 className="font-semibold text-lg">Information for</h4>
           <nav className="flex flex-col gap-2">
-            {infoForLinks.map((link, index) => (
+            {infoForLinks.map((link) => (
               <a
-                key={index}
+                key={`for-${link.text}`}
                 className="text-base leading-[27px] text-white hover:underline"
-                href={link.href}
+                 href={link.href}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -145,40 +147,25 @@ const Footer = (): React.ReactElement => {
 
         {/* Partner Logos */}
         <div className="flex flex-col w-full sm:w-[285px] gap-4 p-4">
-          <a
-            className="flex items-center"
-            href="https://go8.edu.au/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img src="/images/banner1.png" alt="Brand SA" className="w-[300px] h-[69px] object-cover" />
-          </a>
-          
-          <a
-            className="flex items-center"
-            href="https://southaustralia.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img src="/images/banner1.png" alt="Brand SA" className="w-[300px] h-[69px] object-cover" />
-          </a>
-          
-          <a
-            className="flex items-center"
-            href="https://apru.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img src="/images/banner1.png" alt="Brand SA" className="w-[300px] h-[69px] object-cover" />
-          </a>
+          {partnerLinks.map((partner) => (
+            <a
+              key={partner.id}
+              className="flex items-center"
+              href={partner.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img src="/images/banner1.png" alt={partner.alt} className="w-[300px] h-[69px] object-cover" />
+            </a>
+          ))}
         </div>
 
         {/* Contact and Social Links */}
         <div className="flex flex-col w-full sm:w-[315px] p-4">
           <div className="flex gap-2 mb-4">
-            {socialLinks.map((link, index) => (
+            {socialLinks.map((link) => (
               <a
-                key={index}
+                key={link.id}
                 className="flex items-center justify-center w-[30px] h-[30px] bg-transparent hover:opacity-80"
                 href={link.href}
                 rel="noopener noreferrer"
@@ -193,7 +180,7 @@ const Footer = (): React.ReactElement => {
           <div className="mb-4">
             <a
               className="text-[15.5px] leading-[27px] font-normal text-white"
-              href="https://www.adelaide.edu.au/"
+              href="https://hou.edu.vn/"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -210,7 +197,7 @@ const Footer = (): React.ReactElement => {
           
           <div className="flex flex-wrap gap-2 text-[11px]">
             {legalLinks.map((link, index) => (
-              <React.Fragment key={index}>
+              <React.Fragment key={link.id}>
                 <a
                   className="text-white hover:underline"
                   href={link.href}
@@ -236,7 +223,7 @@ const Footer = (): React.ReactElement => {
           <span className="text-[11.5px] leading-[21.6px]">Authorised by:</span>
           <a
             className="ml-1 text-white hover:underline"
-            href="mailto:libraryfeedback@adelaide.edu.au"
+            href="mailto:mhn@hou.edu.vn"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -248,15 +235,13 @@ const Footer = (): React.ReactElement => {
           <span className="text-[11.5px] leading-[21.6px]">Maintained by:</span>
           <a
             className="ml-1 text-white hover:underline"
-            href="mailto:libraryfeedback@adelaide.edu.au"
+            href="mailto:mhn@hou.edu.vn"
             rel="noopener noreferrer"
             target="_blank"
           >
             Library Web 
           </a>
         </div>
-        
-  
       </div>
     </section>
   );

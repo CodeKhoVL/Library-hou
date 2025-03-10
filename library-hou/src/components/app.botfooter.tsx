@@ -1,4 +1,11 @@
-import { Facebook, Instagram, Linkedin, MessageCircle, Twitter, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import React from "react";
 
 const Footer = (): React.ReactElement => {
@@ -24,31 +31,31 @@ const Footer = (): React.ReactElement => {
       icon: <Facebook size={20} />,
       href: "https://hou.edu.vn/",
       ariaLabel: "Facebook",
-      id: "facebook"
+      id: "facebook",
     },
     {
       icon: <Twitter size={20} />,
       href: "https://hou.edu.vn/",
       ariaLabel: "Twitter",
-      id: "twitter"
+      id: "twitter",
     },
     {
       icon: <Instagram size={20} />,
       href: "https://hou.edu.vn/",
       ariaLabel: "Instagram",
-      id: "instagram"
+      id: "instagram",
     },
     {
       icon: <Youtube size={20} />,
       href: "https://hou.edu.vn/",
       ariaLabel: "YouTube",
-      id: "youtube"
+      id: "youtube",
     },
     {
       icon: <MessageCircle size={20} />,
       href: "https://hou.edu.vn/",
       ariaLabel: "NhanTin",
-      id: "nhantin"
+      id: "nhantin",
     },
   ];
 
@@ -57,7 +64,7 @@ const Footer = (): React.ReactElement => {
     { text: "Copyright", href: "https://hou.edu.vn/", id: "copyright" },
     { text: "Privacy Policy", href: "https://hou.edu.vn/", id: "privacy" },
   ];
-  
+
   const partnerLinks = [
     { href: "/", id: "go8", alt: "Group of Eight" },
     { href: "/", id: "/", alt: "/" },
@@ -74,18 +81,26 @@ const Footer = (): React.ReactElement => {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img src="/images/logo.png" alt="Logo HOU" className="w-[220px] h-[265px] object-cover" />
+          <img
+            src="/images/logo.png"
+            alt="Logo HOU"
+            className="w-[220px] h-[265px] object-cover"
+          />
         </a>
-        
+
         <a
           className="flex items-center"
           href="https://hou.edu.vn/"
           rel="noopener noreferrer"
           target="_blank"
         >
-            <img src="/images/lghou.png" alt="Logo HOU" className="w-[250px] h-[65px] object-cover" />
+          <img
+            src="/images/lghou.png"
+            alt="Logo HOU"
+            className="w-[250px] h-[65px] object-cover"
+          />
         </a>
-        
+
         <div className="flex-1 min-w-[300px]">
           <div className="w-full md:w-[561px]">
             <p className="text-base leading-[27px] font-normal">
@@ -94,10 +109,10 @@ const Footer = (): React.ReactElement => {
                 href="https://hou.edu.vn/"
                 rel="noopener noreferrer"
                 target="_blank"
-              >
-
-              </a>{" "}
-              Địa chỉ: - Nhà B101 Phố Nguyễn Hiền, Bách Khoa, Hai Bà Trưng, Hà Nội. - Trường ĐH Mở Hà Nội, Long Hưng, Văn Giang, Hưng Yên. - Phòng đọc: Nhà C Khu giảng đường 422 Vĩnh Hưng, Hoàng Mai, Hà Nội.
+              ></a>{" "}
+              Địa chỉ: - Nhà B101 Phố Nguyễn Hiền, Bách Khoa, Hai Bà Trưng, Hà
+              Nội. - Trường ĐH Mở Hà Nội, Long Hưng, Văn Giang, Hưng Yên. -
+              Phòng đọc: Nhà C Khu giảng đường 422 Vĩnh Hưng, Hoàng Mai, Hà Nội.
             </p>
           </div>
         </div>
@@ -135,7 +150,7 @@ const Footer = (): React.ReactElement => {
               <a
                 key={`for-${link.text}`}
                 className="text-base leading-[27px] text-white hover:underline"
-                 href={link.href}
+                href={link.href}
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -149,13 +164,17 @@ const Footer = (): React.ReactElement => {
         <div className="flex flex-col w-full sm:w-[285px] gap-4 p-4">
           {partnerLinks.map((partner) => (
             <a
-              key={partner.id}
+              key={`partner-${partner.id}`}
               className="flex items-center"
               href={partner.href}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <img src="/images/banner1.png" alt={partner.alt} className="w-[300px] h-[69px] object-cover" />
+              <img
+                src="/images/banner1.png"
+                alt={partner.alt}
+                className="w-[300px] h-[69px] object-cover"
+              />
             </a>
           ))}
         </div>
@@ -165,7 +184,7 @@ const Footer = (): React.ReactElement => {
           <div className="flex gap-2 mb-4">
             {socialLinks.map((link) => (
               <a
-                key={link.id}
+                key={`social-${link.id}`}
                 className="flex items-center justify-center w-[30px] h-[30px] bg-transparent hover:opacity-80"
                 href={link.href}
                 rel="noopener noreferrer"
@@ -176,7 +195,7 @@ const Footer = (): React.ReactElement => {
               </a>
             ))}
           </div>
-          
+
           <div className="mb-4">
             <a
               className="text-[15.5px] leading-[27px] font-normal text-white"
@@ -187,17 +206,17 @@ const Footer = (): React.ReactElement => {
               HaNoi Open Univesity
             </a>
             <p className="text-[15.5px] leading-[27px]">
-              422 Vinh Hung, HaNoi, VietNam  <br /> Hottline: 0246.6838.866
+              422 Vinh Hung, HaNoi, VietNam <br /> Hottline: 0246.6838.866
             </p>
           </div>
-          
+
           <div className="text-[10.9px] leading-[19.2px] mb-4">
-            VietNam University 
+            VietNam University
           </div>
-          
+
           <div className="flex flex-wrap gap-2 text-[11px]">
             {legalLinks.map((link, index) => (
-              <React.Fragment key={link.id}>
+              <React.Fragment key={`legal-${link.id}`}>
                 <a
                   className="text-white hover:underline"
                   href={link.href}
@@ -230,7 +249,7 @@ const Footer = (): React.ReactElement => {
             Open Library
           </a>
         </div>
-        
+
         <div className="flex items-center">
           <span className="text-[11.5px] leading-[21.6px]">Maintained by:</span>
           <a
@@ -239,7 +258,7 @@ const Footer = (): React.ReactElement => {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Library Web 
+            Library Web
           </a>
         </div>
       </div>
@@ -251,10 +270,10 @@ const Footer = (): React.ReactElement => {
     <footer className="flex flex-col items-center px-4 md:px-8 lg:px-[150px] py-4 bg-[#102535] text-white">
       {/* Section 1: Phần trên cùng - logo, make history và acknowledgment */}
       <TopSection />
-      
+
       {/* Section 2: Phần giữa - thông tin, liên kết và logos */}
       <MiddleSection />
-      
+
       {/* Section 3: Phần dưới cùng - thông tin authorization */}
       <BottomSection />
     </footer>

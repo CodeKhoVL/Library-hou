@@ -11,63 +11,98 @@ import { ChevronDown } from "lucide-react";
 
 const navigationItems = [
   {
+    id: "home",
     label: "Trang chủ",
-    href: "",
+    href: "/",
   },
   {
+    id: "intro",
     label: "Giới thiệu",
-    href: "",
+    href: "/gioi-thieu",
     submenu: [
-      { label: "Viện CN sinh học và CN thực phẩm", href: "" },
-      { label: "Postgraduate", href: "" },
-      { label: "International Students", href: "" },
+      {
+        id: "intro-1",
+        label: "Viện CN sinh học và CN thực phẩm",
+        href: "/gioi-thieu/vien-cn",
+      },
+      {
+        id: "intro-2",
+        label: "Chức năng nhiệm vụ",
+        href: "/gioi-thieu",
+      },
+      {
+        id: "intro-3",
+        label: "Cơ cấu tổ chức",
+        href: "/gioi-thieu",
+      },
     ],
   },
   {
+    id: "search",
     label: "Tra cứu",
-    href: "",
+    href: "/tra-cuu",
     submenu: [
-      { label: "Undergraduate", href: "" },
-      { label: "Postgraduate", href: "" },
-      { label: "International Students", href: "" },
+      {
+        id: "search-1",
+        label: "Tìm từ khóa",
+        href: "/tra-cuu",
+      },
+      { id: "search-2", label: "Tài Liệu mới", href: "/tra-cuu" },
+      {
+        id: "search-3",
+        label: "Tra cuu liên thư viện",
+        href: "/tra-cuu",
+      },
     ],
   },
   {
+    id: "journal",
     label: "Tạp chí",
-    href: "",
+    href: "/tap-chi",
     submenu: [
-      { label: "Undergraduate", href: "" },
-      { label: "Postgraduate", href: "" },
-      { label: "International Students", href: "" },
+      {
+        id: "journal-1",
+        label: "Tạp chí khoa học",
+        href: "/tap-chi",
+      },
+      { id: "journal-2", label: "Tạp chí luật", href: "/tap-chi" },
+      {
+        id: "journal-3",
+        label: "Tạp chí kinh tế ",
+        href: "/tap-chi",
+      },
     ],
   },
   {
+    id: "user",
     label: "Người dùng",
-    href: "",
+    href: "/nguoi-dung",
     submenu: [
-      { label: "Research Degrees", href: "" },
-      { label: "Innovation", href: "" },
+      { id: "user-1", label: "Research Degrees", href: "/nguoi-dung/research" },
+      { id: "user-2", label: "Innovation", href: "/nguoi-dung/innovation" },
     ],
   },
   {
+    id: "internal",
     label: "Liên kết nội bộ",
-    href: "",
+    href: "/lien-ket",
     submenu: [
-      { label: "Events", href: "" },
-      { label: "Alumni", href: "" },
+      { id: "internal-1", label: "Events", href: "/lien-ket/events" },
+      { id: "internal-2", label: "Alumni", href: "/lien-ket/alumni" },
     ],
   },
   {
+    id: "resources",
     label: "Học liệu điện tử",
-    href: "",
+    href: "/hoc-lieu",
     submenu: [
-      { label: "Our History", href: "" },
-      { label: "Leadership", href: "" },
+      { id: "resources-1", label: "Our History", href: "/hoc-lieu/history" },
+      { id: "resources-2", label: "Leadership", href: "/hoc-lieu/leadership" },
     ],
   },
 ];
 
-export default function subnav(): React.ReactElement {
+export default function SubNav(): React.ReactElement {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
@@ -76,12 +111,12 @@ export default function subnav(): React.ReactElement {
         <NavigationMenu className="w-full relative">
           <NavigationMenuList className="flex w-full justify-end gap-3 bg-blue">
             {navigationItems.map((item) => {
-              const isHovered = openMenu === item.label;
+              const isHovered = openMenu === item.id;
               return (
                 <div
-                  key={item.href}
+                  key={item.id}
                   className="relative"
-                  onMouseOver={() => setOpenMenu(item.label)}
+                  onMouseOver={() => setOpenMenu(item.id)}
                   onMouseOut={() => setOpenMenu(null)}
                 >
                   <NavigationMenuItem>
@@ -89,7 +124,9 @@ export default function subnav(): React.ReactElement {
                       <button className="inline-flex items-center px-4 py-3 text-sm font-sans text-white transition-colors hover:bg-[#1d4a6c]">
                         {item.label}
                         <ChevronDown
-                          className={`ml-2 h-[14px] w-4 transition-transform duration-300 ${isHovered ? "rotate-180" : "rotate-0"}`}
+                          className={`ml-2 h-[14px] w-4 transition-transform duration-300 ${
+                            isHovered ? "rotate-180" : "rotate-0"
+                          }`}
                         />
                       </button>
                     ) : (
@@ -110,7 +147,7 @@ export default function subnav(): React.ReactElement {
                       >
                         <ul className="flex flex-col p-2">
                           {item.submenu.map((sub) => (
-                            <li key={sub.href}>
+                            <li key={sub.id}>
                               <NavigationMenuLink
                                 href={sub.href}
                                 target="_blank"

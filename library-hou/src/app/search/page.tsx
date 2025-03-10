@@ -223,14 +223,21 @@ export default function SearchPage() {
                     "Luận văn",
                     "Luận án",
                     "Sách",
-                  ].map((type) => (
-                    <div key={type} className="flex items-center">
-                      <input type="checkbox" id={type} className="mr-2" />
-                      <label htmlFor={type} className="text-sm">
-                        {type}
-                      </label>
-                    </div>
-                  ))}
+                  ].map((type) => {
+                    console.log(`type-${type}`); // Kiểm tra xem key có bị trùng không
+                    return (
+                      <div key={`type-${type}`} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id={`type-${type}`}
+                          className="mr-2"
+                        />
+                        <label htmlFor={`type-${type}`} className="text-sm">
+                          {type}
+                        </label>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -239,9 +246,13 @@ export default function SearchPage() {
                 <div className="space-y-2">
                   {["2023", "2022", "2021", "2020", "Trước 2020"].map(
                     (year) => (
-                      <div key={year} className="flex items-center">
-                        <input type="checkbox" id={year} className="mr-2" />
-                        <label htmlFor={year} className="text-sm">
+                      <div key={`year-${year}`} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          id={`year-${year}`}
+                          className="mr-2"
+                        />
+                        <label htmlFor={`year-${year}`} className="text-sm">
                           {year}
                         </label>
                       </div>
@@ -254,9 +265,13 @@ export default function SearchPage() {
                 <h4 className="text-sm font-medium mb-2">Tình trạng</h4>
                 <div className="space-y-2">
                   {["Có sẵn", "Đã mượn"].map((status) => (
-                    <div key={status} className="flex items-center">
-                      <input type="checkbox" id={status} className="mr-2" />
-                      <label htmlFor={status} className="text-sm">
+                    <div key={`status-${status}`} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={`status-${status}`}
+                        className="mr-2"
+                      />
+                      <label htmlFor={`status-${status}`} className="text-sm">
                         {status}
                       </label>
                     </div>
@@ -292,10 +307,10 @@ export default function SearchPage() {
                   </Button>
 
                   <select className="border rounded px-2 py-1 text-sm">
-                    <option>Sắp xếp theo liên quan</option>
-                    <option>Mới nhất</option>
-                    <option>Cũ nhất</option>
-                    <option>A-Z</option>
+                    <option value="relevant">Sắp xếp theo liên quan</option>
+                    <option value="newest">Mới nhất</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="az">A-Z</option>
                   </select>
                 </div>
               </div>

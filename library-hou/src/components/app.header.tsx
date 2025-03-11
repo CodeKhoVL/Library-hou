@@ -1,19 +1,29 @@
-'use client';
-
-import Image from 'next/image';
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="relative w-full">
       {/* Ảnh nền toàn màn hình */}
       <div className="relative w-screen h-auto">
-        <Image 
-          src="/images/banner.png" 
-          alt="University Library Background" 
-          width={1920} 
-          height={500} 
+        <Image
+          src="/images/banner.png"
+          alt="University Library Background"
+          width={1920}
+          height={500}
           className="w-full h-auto object-cover"
           quality={90}
           priority
@@ -29,10 +39,53 @@ const Header = () => {
               Library HOU
             </h1>
 
-            {/* Menu Icon */}
-            <div className="cursor-pointer">
-              <Menu className="h-6 w-6 text-white" />
-            </div>
+            {/* Menu with Sheet */}
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <div className="cursor-pointer">
+                  <Menu className="h-6 w-6 text-white" />
+                </div>
+              </SheetTrigger>
+              <SheetContent
+                side="left"
+                className="bg-[#102535] text-white border-r-[#102535] w-64"
+                style={{ backgroundColor: "#102535" }}
+              >
+                <SheetHeader className="mb-6">
+                  <SheetTitle className="text-white">Library Menu</SheetTitle>
+                </SheetHeader>
+                <nav className="flex flex-col space-y-4">
+                  <Link
+                    href="/mylibrary"
+                    className="text-white hover:text-gray-300 hover:underline py-2 transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    Login to MyLibrary
+                  </Link>
+                  <Link
+                    href="/book-study-space"
+                    className="text-white hover:text-gray-300 hover:underline py-2 transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    Book Study Space
+                  </Link>
+                  <Link
+                    href="/online-chat"
+                    className="text-white hover:text-gray-300 hover:underline py-2  transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    Online Chat
+                  </Link>
+                  <Link
+                    href="/ask-library"
+                    className="text-white hover:text-gray-300 hover:underline py-2 transition-colors"
+                    onClick={() => setOpen(false)}
+                  >
+                    Ask Library
+                  </Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </CardContent>
         </Card>
       </div>

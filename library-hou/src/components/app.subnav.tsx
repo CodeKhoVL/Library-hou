@@ -78,8 +78,26 @@ const navigationItems = [
     label: "Người dùng",
     href: "/nguoi-dung",
     submenu: [
-      { id: "user-1", label: "Research Degrees", href: "/nguoi-dung/research" },
-      { id: "user-2", label: "Innovation", href: "/nguoi-dung/innovation" },
+      {
+        id: "user-1",
+        label: "Thông tin độc giả",
+        href: "/nguoi-dung/research",
+      },
+      {
+        id: "user-2",
+        label: "Hướng dẫn sử dụng",
+        href: "/nguoi-dung/innovation",
+      },
+      {
+        id: "user-3",
+        label: "Thông tin độc giả",
+        href: "/nguoi-dung/research",
+      },
+      {
+        id: "user-4",
+        label: "Hướng dẫn sử dụng",
+        href: "/nguoi-dung/innovation",
+      },
     ],
   },
   {
@@ -87,18 +105,20 @@ const navigationItems = [
     label: "Liên kết nội bộ",
     href: "/lien-ket",
     submenu: [
-      { id: "internal-1", label: "Events", href: "/lien-ket/events" },
-      { id: "internal-2", label: "Alumni", href: "/lien-ket/alumni" },
+      { id: "internal-1", label: "Khoa luật", href: "/lien-ket/" },
+      { id: "internal-2", label: "Khoa Điện - Điện tử", href: "/lien-ket/" },
+      { id: "internal-3", label: "Khoa CN thông tin", href: "/lien-ket/" },
+      {
+        id: "internal-4",
+        label: "Khoa Khoa tạo dáng công nghiệp",
+        href: "/lien-ket/",
+      },
     ],
   },
   {
     id: "resources",
     label: "Học liệu điện tử",
     href: "/hoc-lieu",
-    submenu: [
-      { id: "resources-1", label: "Our History", href: "/hoc-lieu/history" },
-      { id: "resources-2", label: "Leadership", href: "/hoc-lieu/leadership" },
-    ],
   },
 ];
 

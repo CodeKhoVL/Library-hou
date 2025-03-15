@@ -1,144 +1,113 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import React from "react";
+import { ArrowRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
-
-// Định nghĩa kiểu dữ liệu cho props của BookCard
-interface BookCardProps {
-  coverUrl: string;
-  bookUrl: string;
-  width: number;
-  actionText: string;
-  actionUrl: string;
-}
-
-const BookCard: React.FC<BookCardProps> = ({ coverUrl, bookUrl, width, actionText, actionUrl }) => {
-  return (
-    <Card className="flex flex-col items-center justify-center gap-3 p-2 w-[180px] border-none shadow-none bg-transparent">
-      <CardContent className="p-0 w-full flex flex-col items-center justify-center">
-        <a
-          className="block w-full h-[240px] rounded-[3px] bg-center bg-contain bg-no-repeat"
-          href={bookUrl}
-          rel="noopener noreferrer"
-          target="_blank"
-          style={{ backgroundImage: `url(${coverUrl})` }}
-        />
-        <div className="mt-3 w-full flex justify-center">
-          <Button className="w-full bg-[#0376b8] text-center rounded-[5px] h-auto py-2 flex justify-center items-center" asChild>
-            <a href={actionUrl} rel="noopener noreferrer" target="_blank">
-              {actionText}
-            </a>
-          </Button>
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
-
-// Khai báo kiểu dữ liệu cho mảng books
-const books: BookCardProps[] = [
+const books = [
   {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL5684586W",
-    width: 119.59,
-    actionText: "Read",
-    actionUrl: "https://openlibrary.org/borrow/ia/mrincoulsmisadve00saltuoft",
+    id: 1,
+    category: "Design Low Book",
+    title: "How Deal With Very\nBad BOOK",
+    image: "/images/book2.png",
   },
   {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL7008877W",
-    width: 119.59,
-    actionText: "Read",
-    actionUrl: "https://openlibrary.org/borrow/ia/historypompeyli00covegoog",
+    id: 2,
+    category: "Design Low Book",
+    title: "The Hidden Mystery\nBehind",
+    image: "/images/book1.jpg",
   },
   {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL1158943W",
-    width: 119.59,
-    actionText: "Borrow",
-    actionUrl: "https://openlibrary.org/borrow/ia/lespleendeparisp0000unse",
+    id: 3,
+    category: "Design Low Book",
+    title: "Qple GPad With Retina\nSisplay",
+    image: "/images/book2.png",
   },
   {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL1102991W",
-    width: 119.59,
-    actionText: "Read",
-    actionUrl: "https://openlibrary.org/borrow/ia/brontslifelett01shoruoft",
+    id: 4,
+    category: "Design Low Book",
+    title: "Flovely And Unicom\nErna",
+    image: "/images/book1.jpg",
   },
   {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL11293636W",
-    width: 119.59,
-    actionText: "Borrow",
-    actionUrl: "https://openlibrary.org/borrow/ia/commanddecision0000hain",
-  },
-  {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL1102991W",
-    width: 119.59,
-    actionText: "Read",
-    actionUrl: "https://openlibrary.org/borrow/ia/brontslifelett01shoruoft",
-  },
-  {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL11293636W",
-    width: 119.59,
-    actionText: "Borrow",
-    actionUrl: "https://openlibrary.org/borrow/ia/commanddecision0000hain",
-  },
-  {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL1102991W",
-    width: 119.59,
-    actionText: "Read",
-    actionUrl: "https://openlibrary.org/borrow/ia/brontslifelett01shoruoft",
-  },
-  {
-    coverUrl: "/images/book1.jpg",
-    bookUrl: "https://openlibrary.org/works/OL11293636W",
-    width: 119.59,
-    actionText: "Borrow",
-    actionUrl: "https://openlibrary.org/borrow/ia/commanddecision0000hain",
+    id: 5,
+    category: "Design Low Book",
+    title: "Simple Things You To\nSave BOOK",
+    image: "/images/book2.png",
   },
 ];
 
-export default function Books() {
-
+export default function SectionBook(): React.ReactElement {
   return (
-    <div className="flex flex-col items-center w-full h-auto py-8">
-      <div className="relative max-w-[1168px] w-full">
-        <div className="bg-[#0376b8] text-white py-3 text-center rounded-t-lg">
-          <h2 className="text-xl font-semibold">Tài liệu số</h2>
-        </div>
-
-        {/* Vùng chứa danh sách sách */}
-        <div className="w-full h-auto bg-[#d7e3f3] rounded-b-lg px-2 py-8 flex justify-center items-center">
-          <Carousel 
-            className="w-full max-w-6xl overflow-hidden"
-            opts={{
-              align: "start",
-              loop: true,
-              slidesToScroll: 5
+    <section className="flex flex-col mt-5 w-full items-center pb-[100px] px-4 md:px-8 lg:px-16">
+      <div className="flex flex-col w-full max-w-[1595px] items-start gap-2.5 px-3 relative">
+        <div className="relative w-full flex justify-between items-center mb-4">
+          <h2
+            className="font-extrabold"
+            style={{
+              color:
+                "var(--gramentheme-com-prussian-blue, var(--color-azure-15, #012E4A))",
+              textAlign: "center",
+              fontFamily: "var(--font-family-Font-1, Inter)",
+              fontSize: "var(--font-size-40, 40px)",
+              fontStyle: "normal",
+              fontWeight: "var(--font-weight-700, 700)",
+              lineHeight: "var(--font-size-40, 40px)", // 100%
+              textTransform: "capitalize",
             }}
           >
-            <CarouselContent className="ml-0">
-              {books.map((book, index) => (
-                <CarouselItem key={index} className="basis-1/5 pl-0 md:basis-1/5">
-                  <BookCard {...book} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 h-8 w-[35px] bg-transparent bg-white border-none">
-              <ChevronLeft className="h-5 w-[40px]" />
-            </CarouselPrevious>
-            <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 h-8 w-[35px] bg-transparent bg-white border-none">
-              <ChevronRight className="h-5 w-[40px]" />
-            </CarouselNext>
-          </Carousel>
+            Featured Books
+          </h2>
+          <Button className="bg-transparent text-[#070707] font-bold text-base px-10 py-5 h-auto">
+            Explore More <ArrowRight className="ml-1 h-4 w-4" />
+          </Button>
         </div>
+
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={30}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
+          }}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop={true}
+          speed={1000}
+          className="w-full"
+        >
+          {books.map((book) => (
+            <SwiperSlide key={book.id} className="p-4">
+              <Card className="border-none shadow-none">
+                <CardContent className="p-0 flex flex-col">
+                  <div className="bg-neutral-100 rounded-[10px] p-[30px] flex items-center justify-center h-[292px]">
+                    <div
+                      className="h-[216px] w-[155px] bg-cover bg-center"
+                      style={{ backgroundImage: `url(${book.image})` }}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-[5px] mt-5 text-center">
+                    <p className="text-[#4f536c] text-lg font-semibold">
+                      {book.category}
+                    </p>
+                    <h3 className="text-[#012e4a] text-lg font-bold whitespace-pre-line">
+                      {book.title}
+                    </h3>
+                  </div>
+                  <Button className="mt-5 rounded-full bg-[#d0e1e7] text-[#036280] font-bold hover:bg-[#c0d6de]">
+                    Xoem Soách
+                  </Button>
+                </CardContent>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </div>
+    </section>
   );
 }

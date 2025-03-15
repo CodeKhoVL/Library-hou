@@ -1,96 +1,118 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { Menu } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
-const Header = () => {
-  const [open, setOpen] = useState(false);
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+
+export default function Header(): React.ReactElement {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Trending topics data
+  const trendingTopics = ["Giáo Trình", "Bài Giảng", "Luận Văn"];
+
+  // Handle search button click
+  const handleSearch = () => {
+    // Navigate to search page with query parameter if there's a search query
+    router.push(
+      `/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ""}`
+    );
+  };
+
+  // Handle topic click
+  const handleTopicClick = (topic: string) => {
+    router.push(`/search?q=${encodeURIComponent(topic)}`);
+  };
 
   return (
-    <div className="relative w-full">
-      {/* Ảnh nền toàn màn hình */}
-      <div className="relative w-screen h-auto">
-        <Image
-          src="/images/banner.png"
-          alt="University Library Background"
-          width={1920}
-          height={500}
-          className="w-full h-auto object-cover"
-          quality={90}
-          priority
-        />
-      </div>
+    <main className="relative flex flex-col items-center justify-center min-h-screen w-full px-4 py-12 md:py-20">
+      {/* Background Image */}
+      <Image
+        src="/images/bg-library.png"
+        alt="Background"
+        layout="fill"
+        objectFit="cover"
+        className="-z-10"
+      />
 
-      {/* Card nằm dưới cùng của ảnh */}
-      <div className="absolute bottom-0 left-1/2 w-full flex justify-center transform -translate-x-1/2">
-        <Card className="w-[900px] shadow-lg bg-transparent border-0">
-          <CardContent className="h-[90px] bg-[#102535] bg-opacity-70 backdrop-blur-sm flex items-center justify-between px-6 p-5 rounded-lg pt-5">
-            {/* Library Title */}
-            <h1 className="text-[40px] leading-[40px] text-gray-200 font-extrabold">
-              Library HOU
-            </h1>
+      <div className="max-w-[850px] w-full flex flex-col items-center">
+        {/* Tagline */}
+        <h2 className="font-inter font-bold text-lg md:text-xl text-[#102039] text-center mb-6 tracking-wide uppercase drop-shadow-md">
+          Trường đại học Mở Hà Nội
+        </h2>
 
-            {/* Menu with Sheet */}
-            <Sheet open={open} onOpenChange={setOpen}>
-              <SheetTrigger asChild>
-                <div className="cursor-pointer">
-                  <Menu className="h-6 w-6 text-white" />
-                </div>
-              </SheetTrigger>
-              <SheetContent
-                side="left"
-                className="bg-[#102535] text-white border-r-[#102535] w-64"
-                style={{ backgroundColor: "#102535" }}
+        {/* Main heading */}
+        <div className="text-center mb-10">
+          <h1 className="font-inter text-[#102039] text-2xl md:text-3xl font-bold leading-tight tracking-wider drop-shadow-lg">
+            Library HOU <br /> Thư viện đại học Mở
+          </h1>
+        </div>
+
+        {/* Description */}
+        <p className="font-inter text-[#413c3c] text-base md:text-lg text-center leading-relaxed mb-10 italic opacity-90">
+          Mở ra cơ hội học tập cho mọi người <br /> Mở tương lai, Mở cơ hội, Mở
+          trái tim, Mở Tầm nhìn, Mở Trí Tuệ
+        </p>
+
+        {/* Search card */}
+        <Card className="w-full bg-[rgba(255,255,255,0.3)] rounded-[20px] border border-solid border-[#4c53a5aa] backdrop-blur-[10px] backdrop-brightness-[100%] mb-8 flex justify-center items-center">
+          <CardContent className="p-6 w-full flex flex-col items-center">
+            {/* Search input */}
+            <div className="w-full max-w-[600px] mt-7 flex items-center bg-gradient-to-t from-[#f8f8f8] to-[#ffffff] bg-opacity-70 rounded-[60px] mb-6 relative">
+              <div className="px-8 py-7 text-[#102039] text-base md:text-lg font-semibold">
+                Search
+              </div>
+              <div className="flex-1 border-l border-[#e9e9e9] rounded-r-[40px] overflow-hidden">
+                <Input
+                  className="border-none h-[60px] pl-7 text-[#1d1d1d] text-base md:text-lg bg-transparent"
+                  placeholder="Search here"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+                />
+              </div>
+              <Button
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 bg-transparent hover:bg-gray-100 rounded-full"
+                onClick={handleSearch}
+                variant="ghost"
               >
-                <SheetHeader className="mb-6">
-                  <SheetTitle className="text-white">Library Menu</SheetTitle>
-                </SheetHeader>
-                <nav className="flex flex-col space-y-4">
-                  <Link
-                    href="/mylibrary"
-                    className="text-white hover:text-gray-300 hover:underline py-2 transition-colors"
-                    onClick={() => setOpen(false)}
+                <Search className="w-[23px] h-[23px] text-[#102039]" />
+              </Button>
+            </div>
+
+            {/* Trending section */}
+            <div className="flex items-center justify-center flex-wrap">
+              <span className="text-[#102039] text-base md:text-lg font-semibold">
+                Chủ đề :
+              </span>
+              <div className="flex gap-5 ml-2">
+                {trendingTopics.map((topic, index) => (
+                  <Button
+                    key={index}
+                    variant="link"
+                    className="p-0 text-[#102039] text-base md:text-lg"
+                    onClick={() => handleTopicClick(topic)}
                   >
-                    Login to MyLibrary
-                  </Link>
-                  <Link
-                    href="/book-study-space"
-                    className="text-white hover:text-gray-300 hover:underline py-2 transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    Book Study Space
-                  </Link>
-                  <Link
-                    href="/online-chat"
-                    className="text-white hover:text-gray-300 hover:underline py-2  transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    Online Chat
-                  </Link>
-                  <Link
-                    href="/ask-library"
-                    className="text-white hover:text-gray-300 hover:underline py-2 transition-colors"
-                    onClick={() => setOpen(false)}
-                  >
-                    Ask Library
-                  </Link>
-                </nav>
-              </SheetContent>
-            </Sheet>
+                    {topic}
+                  </Button>
+                ))}
+              </div>
+            </div>
           </CardContent>
         </Card>
-      </div>
-    </div>
-  );
-};
 
-export default Header;
+        {/* Browse button */}
+        <Button
+          className="bg-[#c3161c] hover:bg-[#a51217] text-white rounded-[3px] px-8 py-[18px] text-base md:text-lg font-semibold"
+          onClick={handleSearch}
+        >
+          Tìm Kiếm
+        </Button>
+      </div>
+    </main>
+  );
+}

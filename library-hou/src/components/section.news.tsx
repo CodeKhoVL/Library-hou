@@ -1,93 +1,105 @@
-'use client'
-import React from "react";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRightIcon, CalendarIcon, UserIcon } from "lucide-react";
+import React from "react";
 
-const featuredNews = {
-  title: "Kiểm tra công tác thực hiện kế hoạch đào tạo và chúc mừng cán bộ, giảng viên, sinh viên nhân dịp năm mới",
-  content:
-    "Nhằm đảm bảo công tác tổ chức đào tạo được triển khai đúng kế hoạch và hiệu quả ngay từ những ngày đầu năm mới, ngày 05/02, Trường Đại học Mở Hà Nội tổ chức Đoàn công tác kiểm tra tình hình triển khai công tác đào tạo chính quy tại các đơn vị trong Trường...",
-  image: "/images/news1.jpg",
-  link: "http://thuvien.hou.edu.vn/ContentBrowser.aspx?author=1&contentid=8747&dmd_id=81960",
-};
-
-const newsCards = [
+// News data for mapping
+const newsItems = [
   {
+    id: 1,
+    date: "Feb 10, 2024",
+    author: "Admin",
+    title:
+      "Kiểm tra công tác thực hiện kế hoạch đào tạo và chúc mừng cán bộ, giảng viên, sinh viên nhân dịp năm mới",
+    image: "/images/news1.jpg",
+  },
+  {
+    id: 2,
+    date: "Mar 20, 2024",
+    author: "Admin",
     title: "Gặp mặt đầu năm mới Ất Tỵ 2025",
-    content:
-      "Ngày 03/2, Trường Đại học Mở Hà Nội tổ chức chương trình Gặp mặt đầu năm mới Ất Tỵ 2025. Chương trình nhận được sự quan tâm tham dự của Đồng chí Nguyễn Kim Sơn - Ủy viên BCH Trung ương Đảng, Bộ trưởng Bộ Giáo dục và Đào tạo cùng đại diện lãnh đạo một số đơn vị thuộc Bộ Giáo dục và Đào tạo...",
     image: "/images/news2.jpg",
-    link: "http://thuvien.hou.edu.vn/ContentBrowser.aspx?catid=8001&contentid=8745&dmd_id=81368",
   },
   {
-    title: "Thư chúc mừng năm mới Ất Tỵ 2025 của Hiệu trưởng Trường Đại học Mở Hà Nội",
-    content: (
-      <>
-       Trong không khí của một mùa xuân mới, trân trọng gửi tới các thế hệ cán bộ, giảng viên, nghiên cứu sinh, học viên và sinh viên toàn văn Thư chúc mừng năm mới Ất Tỵ 2025 của PGS TS Nguyễn Thị Nhung – Hiệu trưởng Trường Đại học Mở Hà Nội.
-      </>
-    ),
+    id: 3,
+    date: "Jun 14, 2024",
+    author: "Admin",
+    title:
+      "Thư chúc mừng năm mới Ất Tỵ 2025 của Hiệu trưởng Trường Đại học Mở Hà Nội",
     image: "/images/news3.jpg",
-    link: "http://thuvien.hou.edu.vn/ContentBrowser.aspx?contentid=8744&dmd_id=81371&mnuid=11",
   },
   {
-    title: "Trường Đại học Mở Hà Nội tổ chức Chương trình Gặp mặt Tất niên - Chào xuân Ất Tỵ",
-    content: (
-      <>
-        Ngày 20/01/2025, Trường Đại học Mở Hà Nội tổ chức gặp mặt cán bộ, giảng viên, người lao động tại Cơ sở Văn Giang, Hưng Yên của Nhà trường. Tại đây, cán bộ, giảng viên, người lao động đã được hòa mình vào không gian đậm chất văn hóa ...
-      </>
-    ),
+    id: 4,
+    date: "Mar 12, 2024",
+    author: "Admin",
+    title:
+      "Trường Đại học Mở Hà Nội tổ chức Chương trình Gặp mặt Tất niên - Chào xuân Ất Tỵ",
     image: "/images/news4.jpg",
-    link: "http://thuvien.hou.edu.vn/ContentBrowser.aspx?contentid=8745&dmd_id=81371&mnuid=11",
   },
 ];
 
-export default function NewsAndEvents(): React.ReactElement {
+const Section = (): React.ReactElement => {
   return (
-    <section className="max-w-[1158px] mx-auto">
-      <h2 className="text-[42px] font-semibold font-sans text-[#102535] leading-[52.8px] mb-[10px]">
-        News &amp; Events
-      </h2>
-
-      {/* Featured news item */}
-      <div className="flex flex-row gap-8 mb-8">
-        <a className="flex-shrink-0 w-[500px]" href={featuredNews.link} target="_blank" rel="noopener noreferrer">
-          <div
-            className="w-full h-[375px] bg-cover bg-center"
-            style={{ backgroundImage: `url(${featuredNews.image})` }}
-          />
-        </a>
-        <div className="flex flex-col">
-          <a className="text-[19px] leading-[26.4px] text-[#102535] font-bold hover:underline mb-7 " href={featuredNews.link} target="_blank" rel="noopener noreferrer">
-            {featuredNews.title}
-          </a>
-          <p className="text-[15.8px] leading-[27px] text-[#102535] font-normal mb-6">
-            {featuredNews.content}
+    <section className="flex flex-col items-center py-24 px-4 md:px-8 lg:px-16 bg-[#d0e1e7]">
+      <div className="container flex flex-col items-center max-w-7xl">
+        {/* Section Header */}
+        <header className="flex flex-col items-center gap-4 w-full mb-8">
+          <h2 className="font-bold text-[#012e4a] text-4xl text-center">
+            Tin Tức
+          </h2>
+          <p className="text-[#4f536c] text-center max-w-2xl">
+            Được cập nhật liên tục thông tin trong trường và ngoài trường
           </p>
-          <Button variant="outline" className="w-fit h-auto rounded-none border-black text-black text-[12.4px] px-[22.6px] py-[15px]" asChild>
-            <a href={featuredNews.link} target="_blank" rel="noopener noreferrer">Read more</a>
-          </Button>
-        </div>
-      </div>
+        </header>
 
-      {/* News cards */}
-      <div className="grid grid-cols-3 gap-[30px]">
-        {newsCards.map(({ title, content, image, link }, index) => (
-          <Card key={index} className="rounded-none border-0 bg-neutral-100">
-            <a href={link} target="_blank" rel="noopener noreferrer" className="block">
-              <div className="w-full h-[267px] bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} />
-            </a>
-            <CardContent className="p-8">
-              <a className="text-[19px] leading-[30.4px] text-[#102535] font-bold hover:underline block mb-4 mt-5" href={link} target="_blank" rel="noopener noreferrer">
-                {title}
-              </a>
-              <div className="text-[15.8px] leading-[27px] text-[#102535] font-normal mb-6">{content}</div>
-              <Button variant="outline" className="w-fit h-auto rounded-none border-black text-black text-[12.4px] px-[22.6px] py-[15px]" asChild>
-                <a href={link} target="_blank" rel="noopener noreferrer">Read more</a>
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
+        {/* News Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          {newsItems.map((item) => (
+            <div key={item.id} className="flex flex-col">
+              <Card className="overflow-hidden border border-solid border-[#5c707e33] rounded-2xl h-full">
+                {/* Card Image Section */}
+                <div className="relative">
+                  <div
+                    className="h-48 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  />
+                </div>
+
+                <CardContent className="flex flex-col gap-2 p-6">
+                  {/* Date and Author */}
+                  <div className="flex items-center gap-6 w-full">
+                    <div className="flex items-center gap-2">
+                      <CalendarIcon className="w-3 h-3.5" />
+                      <span className="text-[#4f536c] text-sm">
+                        {item.date}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <UserIcon className="w-3 h-3.5" />
+                      <span className="text-[#4f536c] text-sm">
+                        By {item.author}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-bold text-[#012e4a] text-lg leading-[26.1px]">
+                    {item.title}
+                  </h3>
+
+                  {/* Read More Link */}
+                  <div className="flex items-center gap-2.5 pt-1.5">
+                    <span className="text-[#4f536c]">Đọc tiếp</span>
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Section;

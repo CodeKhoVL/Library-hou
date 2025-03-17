@@ -6,7 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Inter } from "next/font/google";
 import React, { useState } from "react";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Header(): React.ReactElement {
   const router = useRouter();
@@ -43,7 +46,9 @@ export default function Header(): React.ReactElement {
         </h2>
 
         <div className="text-center mb-5 sm:mb-8 md:mb-10">
-          <h1 className="font-inter text-[#102039] text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-wider drop-shadow-lg">
+          <h1
+            className={`${inter.className} text-[#102039] text-[40px] font-bold leading-tight tracking-wider drop-shadow-lg font-sans`}
+          >
             Library HOU <br /> Thư viện đại học Mở
           </h1>
         </div>
@@ -53,7 +58,6 @@ export default function Header(): React.ReactElement {
           Mở tương lai, Mở cơ hội, Mở trái tim, Mở Tầm nhìn, Mở Trí Tuệ
         </p>
 
-        {/* Search card với hiệu ứng mờ tốt hơn */}
         <Card className="w-full bg-white/50 rounded-[15px] sm:rounded-[20px] border border-solid border-[#4c53a5aa] backdrop-blur-md shadow-lg mb-5 sm:mb-8 flex justify-center items-center">
           <CardContent className="p-3 sm:p-4 md:p-6 w-full flex flex-col items-center">
             <div className="w-full max-w-[90vw] sm:max-w-[600px] mt-2 sm:mt-4 md:mt-7 flex flex-col sm:flex-row items-center bg-white/60 rounded-[30px] sm:rounded-[60px] mb-4 sm:mb-6 relative shadow-lg">

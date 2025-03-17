@@ -88,7 +88,10 @@ export default function Categories(): React.ReactElement {
           className="w-full max-w-[1511px] relative pb-16" // Tạo khoảng trống dưới pagination
         >
           {categories.map((category) => (
-            <SwiperSlide key={category.id} className="flex justify-center">
+            <SwiperSlide
+              key={category.id}
+              className="flex justify-center items-center"
+            >
               <CategoryCard category={category} />
             </SwiperSlide>
           ))}
@@ -103,6 +106,11 @@ export default function Categories(): React.ReactElement {
             position: relative !important;
             bottom: -10px !important; /* Điều chỉnh vị trí xuống dưới */
           }
+
+          .swiper-slide {
+            display: flex !important;
+            justify-content: center !important;
+          }
         `}</style>
       </div>
     </section>
@@ -112,8 +120,8 @@ export default function Categories(): React.ReactElement {
 // Component hiển thị danh mục sách
 function CategoryCard({ category }: { category: (typeof categories)[0] }) {
   return (
-    <div className="p-2">
-      <Card className="border-none shadow-md w-[250px]">
+    <div className="p-2 flex justify-center w-full">
+      <Card className="border-none shadow-md w-full max-w-[250px]">
         <CardContent className="flex flex-col items-center p-4">
           <div className="relative flex flex-col items-center gap-5 pt-[30px]">
             {/* Huy hiệu ID */}

@@ -71,6 +71,13 @@ const Footer = (): React.ReactElement => {
     { href: "/", id: "apru", alt: "APRU" },
   ];
 
+  const infocsdl = [
+    { text: "The University", href: "https://hou.edu.vn/" },
+    { text: "Degrees & Courses", href: "https://hou.edu.vn/" },
+    { text: "Safer Campus Community", href: "https://hou.edu.vn/" },
+    { text: "University Contacts", href: "https://hou.edu.vn/" },
+  ];
+
   // SECTION 1: Logo, Make History và Acknowledge
   const TopSection = () => (
     <section className="w-full max-w-[1200px] py-4">
@@ -93,13 +100,7 @@ const Footer = (): React.ReactElement => {
           href="https://hou.edu.vn/"
           rel="noopener noreferrer"
           target="_blank"
-        >
-          <img
-            src="/images/lghou.png"
-            alt="Logo HOU"
-            className="w-[250px] h-[65px] object-cover"
-          />
-        </a>
+        ></a>
 
         <div className="flex-1 min-w-[300px]">
           <div className="w-full md:w-[561px]">
@@ -158,25 +159,6 @@ const Footer = (): React.ReactElement => {
               </a>
             ))}
           </nav>
-        </div>
-
-        {/* Partner Logos */}
-        <div className="flex flex-col w-full sm:w-[285px] gap-4 p-4">
-          {partnerLinks.map((partner) => (
-            <a
-              key={`partner-${partner.id}`}
-              className="flex items-center"
-              href={partner.href}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img
-                src="/images/banner1.png"
-                alt={partner.alt}
-                className="w-[300px] h-[69px] object-cover"
-              />
-            </a>
-          ))}
         </div>
 
         {/* Contact and Social Links */}

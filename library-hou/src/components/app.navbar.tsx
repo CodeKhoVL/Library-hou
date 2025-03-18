@@ -13,11 +13,11 @@ import React, { useState, useEffect } from "react";
 const navigationLinks = [
   {
     text: "LMS HOU",
-    href: "https://cas.hou.edu.vn/cas/login?service=https%3A%2F%2Flms.hou.edu.vn%2Flogin%2Findex.php",
+    href: "https://cas.hou.io.vn/",
   },
   {
     text: "SINH VIÊN",
-    href: "https://cas.hou.edu.vn/cas/login?service=https://accounts.hou.edu.vn/index.php",
+    href: "https://cas.hou.io.vn/",
   },
 ];
 
@@ -92,7 +92,7 @@ export default function Navbar(): React.ReactElement {
               ))}
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  href="https://cas.hou.edu.vn/cas/login?service=http://thuvien.hou.edu.vn/Login.aspx"
+                  href="https://cas.hou.io.vn/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white text-xs lg:text-sm font-medium px-3 py-2 hover:bg-[#1d3040] rounded transition-colors"

@@ -6,6 +6,7 @@ import Subnav from "@components/app.subnav";
 import Categories from "@components/section.categories";
 import News from "@components/section.news";
 import Books from "@/components/section.books";
+import Books2 from "@/components/section.books2";
 import TopFooter from "@/components/app.topfooter";
 import BotFooter from "@/components/app.botfooter";
 
@@ -93,6 +94,7 @@ const AppHeader = () => {
         <Subnav />
         <Header />
         <Books />
+        <Books2 />
         <Categories />
         <News />
         <TopFooter />

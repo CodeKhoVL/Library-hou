@@ -41,13 +41,13 @@ export default function Header(): React.ReactElement {
       />
 
       <div className="max-w-[85vw] sm:max-w-[90vw] md:max-w-[850px] w-full flex flex-col items-center">
-        <h2 className="font-inter font-bold text-sm sm:text-lg md:text-xl text-[#102039] text-center mb-3 sm:mb-6 tracking-wide uppercase drop-shadow-md">
+        <h2 className="font-inter font-bold text-sm sm:text-lg md:text-xl text-[#1e3864] text-center mb-3 sm:mb-6 tracking-wide uppercase drop-shadow-md">
           Trường đại học Mở Hà Nội
         </h2>
 
         <div className="text-center mb-5 sm:mb-8 md:mb-10">
           <h1
-            className={`${inter.className} text-[#102039] text-[40px] font-bold leading-tight tracking-wider drop-shadow-lg font-sans`}
+            className={`${inter.className} text-[#244477] text-[40px] font-bold leading-tight tracking-wider drop-shadow-lg font-sans`}
           >
             Library HOU <br /> Thư viện đại học Mở
           </h1>

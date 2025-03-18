@@ -59,7 +59,7 @@ export default function SectionBook(): React.ReactElement {
               textTransform: "capitalize",
             }}
           >
-            Luận án
+            Giáo trình
           </h2>
           <Button className="bg-transparent text-[#070707] font-bold text-base px-10 py-5 h-auto">
             Explore More <ArrowRight className="ml-1 h-4 w-4" />
@@ -99,7 +99,7 @@ export default function SectionBook(): React.ReactElement {
                       {book.title}
                     </h3>
                   </div>
-                  <Button className="mt-5 rounded-full bg-[#d0e1e7] text-[#036280] font-bold hover:bg-[#c0d6de]">
+                  <Button className="mt-5 rounded-full bg-[#237c9c] text-[#036280] font-bold hover:bg-[#c0d6de]">
                     Xoem Soách
                   </Button>
                 </CardContent>
